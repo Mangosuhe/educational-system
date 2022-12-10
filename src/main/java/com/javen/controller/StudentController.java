@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,6 +50,18 @@ public class StudentController {
         result.put("count",iStudentService.findByName(student).size());
         result.put("data",iStudentService.findByName(student));
         return result;
+    }
+
+    /**
+     * 按id查询
+     *
+     * @param id 学生id
+     * @return 学生
+     */
+    @RequestMapping("getStudentById")
+    @ResponseBody
+    public Student getStudentById(Integer id) {
+        return iStudentService.getStudentById(id);
     }
 
     /**

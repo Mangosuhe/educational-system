@@ -29,6 +29,11 @@ public class ITeacherServiceImpl implements ITeacherService {
     }
 
     @Override
+    public Teacher getTeacherById(Integer id) {
+        return teacherDao.getTeacherById(id);
+    }
+
+    @Override
     public Integer addTeacher(Teacher teacher) {
         return teacherDao.addTeacher(teacher);
     }

@@ -25,6 +25,14 @@ public interface ITeacherService {
     List<Teacher> findByName(Teacher teacher);
 
     /**
+     * 根据id查询老师
+     *
+     * @param id 查询id
+     * @return 老师
+     */
+    Teacher getTeacherById(Integer id);
+
+    /**
      * 新增老师
      *
      * @param teacher 老师

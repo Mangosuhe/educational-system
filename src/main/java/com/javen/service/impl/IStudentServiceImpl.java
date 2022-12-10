@@ -28,6 +28,11 @@ public class IStudentServiceImpl implements IStudentService {
     }
 
     @Override
+    public Student getStudentById(Integer id) {
+        return studentDao.getStudentById(id);
+    }
+
+    @Override
     public Integer addStudent(Student student) {
         return studentDao.addStudent(student);
     }

@@ -1,0 +1,118 @@
+<html lang="">
+<head>
+    <meta charSet="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../sources/layui/css/layui.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layui-form layuimini-form" id="aaa">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">id</label>
+        <div class="layui-input-block">
+            <input type="text" name="id" id="id" value="" class="layui-input" readOnly>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">姓名</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" id="name" lay-verify="required" lay-reqtext="姓名不能为空"
+                   placeholder="请输入姓名" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">性别</label>
+        <div class="layui-input-block">
+            <input type="text" name="sex" id="sex" lay-verify="required" lay-reqtext="性别不能为空"
+                   placeholder="请输入性别" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄</label>
+        <div class="layui-input-block">
+            <input type="number" name="age" id="age" lay-verify="required" lay-reqtext="年龄不能为空"
+                   placeholder="请输入年龄" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">学历</label>
+        <div class="layui-input-block">
+            <input type="text" name="education" id="education" lay-verify="required" lay-reqtext="学历不能为空"
+                   placeholder="请输入学历" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">职称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" id="title" lay-verify="required" lay-reqtext="职称不能为空"
+                   placeholder="请输入职称" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">入职时间</label>
+        <div class="layui-input-block">
+            <input type="text" name="entry_time" id="entry_time" lay-verify="required" lay-reqtext="入职时间不能为空"
+                   placeholder="请输入入职时间" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">学院</label>
+        <div class="layui-input-block">
+            <input type="text" name="college" id="college" lay-verify="required" lay-reqtext="学院不能为空"
+                   placeholder="请输入学院" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认修改</button>
+        </div>
+    </div>
+</div>
+<script src="../../sources/layui/layui.js" charSet="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        const form = layui.form,
+            $ = layui.$;
+
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            $.ajax({
+                url: '/teacher/updateTeacher',
+                type: 'post',
+                data: {
+                    id: data.field.id,
+                    name: data.field.name,
+                    sex: data.field.sex,
+                    age: data.field.age,
+                    education: data.field.education,
+                    title: data.field.title,
+                    entry_time: data.field.entry_time,
+                    college: data.field.college
+                },
+                success: function (data) {
+                    if (data === 200) {
+                        alert("修改成功");
+                    } else {
+                        alert("修改失败");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(typeof (errorThrown));
+                }
+            });
+            const iframeIndex = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(iframeIndex);
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

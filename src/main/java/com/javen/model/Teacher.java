@@ -10,6 +10,7 @@ import java.util.Date;
  */
 public class Teacher {
     private Integer id;
+    private Integer u_id;
     private String name;
     private String sex;
     private Integer age;
@@ -25,6 +26,14 @@ public class Teacher {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(Integer u_id) {
+        this.u_id = u_id;
     }
 
     public String getName() {

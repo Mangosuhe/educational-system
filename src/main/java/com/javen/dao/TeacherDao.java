@@ -23,6 +23,13 @@ public interface TeacherDao {
      * @return 老师
      */
     List<Teacher> findByName(Teacher teacher);
+    /**
+     * 根据id查询老师
+     *
+     * @param id 查询id
+     * @return 老师
+     */
+    Teacher getTeacherById(Integer id);
 
     /**
      * 新增老师

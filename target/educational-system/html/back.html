@@ -39,12 +39,14 @@
                     <dl class="layui-nav-child">
                         <dd id="course">
                             <a data-url="content" data-id="41" data-title="课程信息" style="margin: 0 10px;"
-                               href="./course/course.html" target="iframeMain" class="layui-icon layui-icon-chart-screen"
+                               href="./course/course.html" target="iframeMain"
+                               class="layui-icon layui-icon-chart-screen"
                                data-type="tabAdd">&nbsp;&nbsp;课程信息</a>
                         </dd>
                         <dd id="selectCourse">
                             <a data-url="content" data-id="41" data-title="选课" style="margin: 0 10px;"
-                               href="./selectCourse.html" target="iframeMain" class="layui-icon layui-icon-template"
+                               href="selectCourse/selectCourse.html" target="iframeMain"
+                               class="layui-icon layui-icon-template"
                                data-type="tabAdd">&nbsp;&nbsp;选课</a>
                         </dd>
                     </dl>
@@ -64,21 +66,21 @@
                     </a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:">
-                        <i class="layui-icon layui-icon-more" style="font-size: 20px;margin: 0 10px;"></i>
+                    <a><i class="layui-icon layui-icon-more" style="font-size: 20px;margin: 0 10px;"></i>
                         账号管理
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a data-url="content" data-id="41" data-title="个人信息" style="margin: 0 10px;"
-                               href="./individual.html" target="iframeMain" class="layui-icon layui-icon-username"
+                        <dd id="individual">
+                            <a data-url="content" data-id="41" data-title="个人信息" style="margin: 0 10px;"
+                               href="account/individual.html" target="iframeMain" class="layui-icon layui-icon-username"
                                data-type="tabAdd">&nbsp;&nbsp;个人信息</a>
                         </dd>
                         <dd><a data-url="content" data-id="41" data-title="账号密码重置" style="margin: 0 10px;"
-                               href="./reset.html" target="iframeMain" class="layui-icon layui-icon-refresh"
+                               href="account/reset.html" target="iframeMain" class="layui-icon layui-icon-refresh"
                                data-type="tabAdd">&nbsp;&nbsp;账号密码重置</a>
                         </dd>
                         <dd><a data-url="fileContent" data-id="42" data-title="修改密码" style="margin: 0 10px;"
-                               class="layui-icon layui-icon-edit" href="./updatePassword.html" target="iframeMain"
+                               class="layui-icon layui-icon-edit" href="account/updatePassword.html" target="iframeMain"
                                data-type="tabAdd">&nbsp;&nbsp;修改密码</a>
                         </dd>
                     </dl>
@@ -116,6 +118,7 @@
         $("#username").text(username);
         if (identity === "0") {
             $("#selectCourse").hide();
+            $("#individual").hide();
         } else if (identity === "1") {
             $("#student").hide();
             $("#teacher").hide();

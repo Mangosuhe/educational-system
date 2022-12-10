@@ -24,6 +24,14 @@ public interface StudentDao {
     List<Student> findByName(Student student);
 
     /**
+     * 根据id查询学生
+     *
+     * @param id 学生id
+     * @return 学生
+     */
+    Student getStudentById(Integer id);
+
+    /**
      * 新增学生
      *
      * @param student 学生

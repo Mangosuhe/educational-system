@@ -55,6 +55,18 @@ public class TeacherController {
     }
 
     /**
+     * 按id查询
+     *
+     * @param id 老师id
+     * @return 老师
+     */
+    @RequestMapping("getTeacherById")
+    @ResponseBody
+    public Teacher getTeacherById(Integer id) {
+        return iTeacherService.getTeacherById(id);
+    }
+
+    /**
      * 新增老师
      *
      * @param teacher 老师
