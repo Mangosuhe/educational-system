@@ -24,8 +24,8 @@ public class ITeacherServiceImpl implements ITeacherService {
     }
 
     @Override
-    public List<Teacher> findByName(String name) {
-        return teacherDao.findByName(name);
+    public List<Teacher> findByName(Teacher teacher) {
+        return teacherDao.findByName(teacher);
     }
 
     @Override

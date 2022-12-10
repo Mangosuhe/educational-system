@@ -22,8 +22,8 @@ public class ICourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public List<Course> findByName(String name) {
-        return courseDao.findByName(name);
+    public List<Course> findByName(Course course) {
+        return courseDao.findByName(course);
     }
 
     @Override

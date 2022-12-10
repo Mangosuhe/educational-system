@@ -17,12 +17,12 @@ public interface TeacherDao {
     List<Teacher> findAll();
 
     /**
-     * 根据项姓名查询老师
+     * 根据姓名查询老师
      *
-     * @param name 老师姓名
+     * @param teacher 老师
      * @return 老师
      */
-    List<Teacher> findByName(String name);
+    List<Teacher> findByName(Teacher teacher);
 
     /**
      * 新增老师

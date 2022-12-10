@@ -17,12 +17,12 @@ public interface CourseDao {
     List<Course> findAll();
 
     /**
-     * 根据项姓名查询课程
+     * 根据名称查询课程
      *
-     * @param name 课程姓名
+     * @param course 课程
      * @return 课程
      */
-    List<Course> findByName(String name);
+    List<Course> findByName(Course course);
 
     /**
      * 新增课程

@@ -40,17 +40,17 @@ public class TeacherController {
     /**
      * 按姓名查询
      *
-     * @param name 姓名
+     * @param teacher 老师
      * @return 老师
      */
     @RequestMapping("findByName")
     @ResponseBody
-    public Map<String, Object> findByName(String name) {
+    public Map<String, Object> findByName(Teacher teacher) {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("code", 0);
         result.put("msg", "");
-        result.put("count",iTeacherService.findByName(name).size());
-        result.put("data",iTeacherService.findByName(name));
+        result.put("count",iTeacherService.findByName(teacher).size());
+        result.put("data",iTeacherService.findByName(teacher));
         return result;
     }
 

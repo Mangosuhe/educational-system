@@ -23,8 +23,8 @@ public class IStudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public List<Student> findByName(String name) {
-        return studentDao.findByName(name);
+    public List<Student> findByName(Student student) {
+        return studentDao.findByName(student);
     }
 
     @Override

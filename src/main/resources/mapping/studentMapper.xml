@@ -12,7 +12,7 @@
     <select id="findByName" parameterType="com.javen.model.Student" resultType="com.javen.model.Student">
         select *
         from student
-        where name = #{name};
+        where name like '%${name}%';
     </select>
     <!--    新增学生-->
     <insert id="addStudent" parameterType="com.javen.model.Student">

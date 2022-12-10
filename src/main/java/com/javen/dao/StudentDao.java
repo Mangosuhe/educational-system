@@ -16,12 +16,12 @@ public interface StudentDao {
     List<Student> findAll();
 
     /**
-     * 根据项姓名查询学生
+     * 根据姓名查询学生
      *
-     * @param name 学生姓名
+     * @param student 学生
      * @return 学生
      */
-    List<Student> findByName(String name);
+    List<Student> findByName(Student student);
 
     /**
      * 新增学生

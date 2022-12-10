@@ -39,17 +39,17 @@ public class StudentController {
     /**
      * 按姓名查询
      *
-     * @param name 姓名
+     * @param student 学生
      * @return 学生
      */
     @RequestMapping("findByName")
     @ResponseBody
-    public Map<String, Object> findByName(String name) {
+    public Map<String, Object> findByName(Student student) {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("code", 0);
         result.put("msg", "");
-        result.put("count",iStudentService.findByName(name).size());
-        result.put("data",iStudentService.findByName(name));
+        result.put("count",iStudentService.findByName(student).size());
+        result.put("data",iStudentService.findByName(student));
         return result;
     }
 
