@@ -15,13 +15,13 @@ InteliJ IDEA、jdk1.8、tomcat8.5.29、mysql8.0.28.
 │   ├── ├── service
 │   ├── ├──├── impl
 │   ├── resources
-│   ├── ├──mapping                    // mybatis映射文件
-│   ├── ├──sql                        //数据库文件
-│   ├── ├──jdbc.properties            //数据库配置文件
-│   ├── ├──log4j.properties           //日志配置文件
-│   ├── ├──mybatis-config.xml         //mybatis配置文件
-│   ├── ├──spring-mvc.xml             //springmvc配置文件
-│   ├── ├──spring-mybatis.xml         //spring配置文件
+│   ├── ├──mapping                    // mybatis map file
+│   ├── ├──sql                        // database file
+│   ├── ├──jdbc.properties            // database configuration file
+│   ├── ├──log4j.properties           // log configuration file
+│   ├── ├──mybatis-config.xml         // mybatis configuration file
+│   ├── ├──spring-mvc.xml             // springmvc configuration file
+│   ├── ├──spring-mybatis.xml         // spring configuration file
 │   ├── webapp
 ├── pom.xml
 ~~~~
