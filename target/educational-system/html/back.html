@@ -32,33 +32,20 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item">
-                    <a href="javascript:">
+                    <a data-url="fileContent" data-id="2" data-title="课程管理"
+                       class="site-demo-active" data-type="tabAdd" href="course/course.html" target="iframeMain">
                         <i class="layui-icon layui-icon-template-1" style="font-size: 20px;margin: 0 10px;"></i>
                         课程管理
                     </a>
-                    <dl class="layui-nav-child">
-                        <dd id="course">
-                            <a data-url="content" data-id="41" data-title="课程信息" style="margin: 0 10px;"
-                               href="./course/course.html" target="iframeMain"
-                               class="layui-icon layui-icon-chart-screen"
-                               data-type="tabAdd">&nbsp;&nbsp;课程信息</a>
-                        </dd>
-                        <dd id="selectCourse">
-                            <a data-url="content" data-id="41" data-title="选课" style="margin: 0 10px;"
-                               href="selectCourse/selectCourse.html" target="iframeMain"
-                               class="layui-icon layui-icon-template"
-                               data-type="tabAdd">&nbsp;&nbsp;选课</a>
-                        </dd>
-                    </dl>
                 </li>
-                <li id="student" class="layui-nav-item layui-nav-itemed">
+                <li id="student" class="layui-nav-item">
                     <a data-url="fileContent" data-id="2" data-title="学生管理"
                        class="site-demo-active" data-type="tabAdd" href="student/student.html" target="iframeMain">
                         <i class="layui-icon layui-icon-friends" style="font-size: 20px;margin: 0 10px;"></i>
                         学生管理
                     </a>
                 </li>
-                <li id="teacher" class="layui-nav-item layui-nav-itemed">
+                <li id="teacher" class="layui-nav-item">
                     <a data-url="fileContent" data-id="3" data-title="教师管理"
                        class="site-demo-active" data-type="tabAdd" href="teacher/teacher.html" target="iframeMain">
                         <i class="layui-icon layui-icon-user" style="font-size: 20px;margin: 0 10px;"></i>
@@ -93,7 +80,7 @@
     <div class="layui-tab" lay-filter="demo" lay-allowclose="true" style="margin-left: 200px;">
         <!-- 放置主体页面 -->
         <div class="layui-tab-content">
-            <iframe src="" name="iframeMain" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="" name="iframeMain" width="100%" height="1000px" frameborder="0"></iframe>
         </div>
     </div>
 
@@ -106,11 +93,8 @@
 <script>
     // 挂载layui，添加jquery和form 一会我们会用到
     layui.use('element', function () {
-        // 这个时候将挂载到layui中的layer放置到一个变量上面，有助于我们调用
-        // const layer = layui.layer;
-        // const form = layui.form;
         const $ = layui.jquery;
-        const element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+        const element = layui.element;
 
         //获取 上一个页面传来的参数
         const identity = localStorage.getItem("identity");

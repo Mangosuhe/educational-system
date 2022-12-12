@@ -24,16 +24,31 @@ public class CourseController {
     /**
      * 查询所有课程
      *
+     * @param id 当前登录的学生id
      * @return 课程列表
      */
     @RequestMapping("findAll")
     @ResponseBody
-    public Map<String, Object> findAll() {
+    public Map<String, Object> findAll(Integer id) {
+        List<Course> courses = iCourseService.findAll();
+        List<Course> courses1 = iCourseService.findSelect(id);
+        for (Course course : courses) {
+            course.setC_id(0);
+        }
+        int j = 0;
+        while (j < courses.size()) {
+            for (Course course : courses1) {
+                if (courses.get(j).getId().equals(course.getC_id())) {
+                    courses.get(j).setC_id(1);
+                }
+            }
+            j++;
+        }
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("code", 0);
         result.put("msg", "");
-        result.put("count",iCourseService.findAll().size());
-        result.put("data",iCourseService.findAll());
+        result.put("count",courses.size());
+        result.put("data",courses);
         return result;
     }
 
@@ -104,6 +119,25 @@ public class CourseController {
         int account = iCourseService.updateCourse(course);
         int data;
         if (account == 1) {
+            data = 200;
+        } else {
+            data = 404;
+        }
+        return data;
+    }
+    /**
+     * 选课
+     *
+     * @param course 课程
+     * @return 选课情况
+     */
+    @RequestMapping("selectCourse")
+    @ResponseBody
+    public Integer selectCourse(Course course) {
+        int account1 = iCourseService.updateCourse(course);
+        int account2 = iCourseService.selectCourse(course);
+        int data;
+        if (account1 == 1 && account2 == 1) {
             data = 200;
         } else {
             data = 404;

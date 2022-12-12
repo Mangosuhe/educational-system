@@ -12,6 +12,10 @@ public class Course {
     private Integer week;
     private String type;
     private Integer credit;
+    private Integer number;
+    private Integer c_id;
+    private Integer s_id;
+
 
     public Integer getId() {
         return id;
@@ -77,4 +81,27 @@ public class Course {
         this.credit = credit;
     }
 
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public Integer getC_id() {
+        return c_id;
+    }
+
+    public void setC_id(Integer c_id) {
+        this.c_id = c_id;
+    }
+
+    public Integer getS_id() {
+        return s_id;
+    }
+
+    public void setS_id(Integer s_id) {
+        this.s_id = s_id;
+    }
 }

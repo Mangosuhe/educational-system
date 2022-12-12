@@ -17,7 +17,7 @@
             <div style="margin: 10px 10px 10px 10px" id="btn">
                 <form class="layui-form layui-form-pane" action="">
                     <div class="layui-form-item">
-                        <h1>课程信息</h1>
+                        <h1>课程管理</h1>
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
@@ -50,19 +50,32 @@
 
 <script type="text/html" id="barDemo">
     <div class="layui-btn-container">
+        {{# if(d.c_id == 0 && localStorage.getItem("identity") == 2){ }}
+        <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="select">选中</button>
+        {{# } }}
+        {{# if(d.c_id == 1 && localStorage.getItem("identity") == 2){ }}
+        <button class="layui-btn layui-btn-disabled layui-btn-sm">已选</button>
+        {{# } }}
+        {{# if(localStorage.getItem("identity") != 2){ }}
         <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
+        {{# } }}
+        {{# if(localStorage.getItem("identity") != 2){ }}
         <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</button>
+        {{# } }}
     </div>
 </script>
 
 <script>
     layui.use('table', function () {
         const table = layui.table;
+        const form = layui.form;
         const $ = layui.jquery;
+        const s_id = localStorage.getItem("id");
 
         table.render({
             elem: '#test'
             , url: '/course/findAll'
+            , where: {"id": s_id}
             , method: 'get'
             , parseData: function (res) {
                 let current_pages;
@@ -74,19 +87,22 @@
                 }
                 //根据分页要求选出需要显示的数据
                 res.data = res.data.slice(this.limit * (current_pages - 1), this.limit * current_pages);
+                console.log(res.data);
             }
             , page: true
             , id: 'test'
             , cols: [[
                 {field: 'id', width: 80, title: 'ID', sort: true, align: 'center'}
                 , {field: 'name', width: 145, title: '课程名称', align: 'center'}
-                , {field: 't_id', width: 150, title: '授课老师id', sort: true, align: 'center'}
-                , {field: 'time', width: 170, title: '上课时间', align: 'center'}
-                , {field: 'location', width: 170, title: '上课地点', minWidth: 150, align: 'center'}
+                , {field: 't_id', width: 140, title: '授课老师id', sort: true, align: 'center'}
+                , {field: 'time', width: 120, title: '上课时间', align: 'center'}
+                , {field: 'location', width: 140, title: '上课地点', minWidth: 150, align: 'center'}
                 , {field: 'week', width: 80, title: '周数', sort: true, align: 'center'}
-                , {field: 'type', width: 170, title: '课程类型', sort: true, align: 'center'}
-                , {field: 'credit', width: 84, title: '学分', align: 'center'}
-                , {fixed: 'right', width: 161, title: '操作', align: 'center', toolbar: '#barDemo'}
+                , {field: 'type', width: 140, title: '课程类型', sort: true, align: 'center'}
+                , {field: 'credit', width: 80, title: '学分', sort: true, align: 'center'}
+                , {field: 'number', width: 105, title: '选课人数', align: 'center'}
+                , {field: 'c_id', hide: true}
+                , {fixed: 'right', width: 176, title: '操作', align: 'center', toolbar: '#barDemo'}
             ]]
         });
         $(document).on('click', '#search_btn', function (data) {
@@ -153,6 +169,31 @@
                     },
                     end: function () {
                         location.reload();
+                    }
+                });
+            } else if (layEvent === 'select') {
+                $.ajax({
+                    url: "/course/selectCourse",
+                    type: "post",
+                    data: {
+                        "id": data.id,
+                        "number": data.number + 1,
+                        "s_id": s_id
+                    },
+                    success: function (data) {
+                        if (data === 200) {
+                            layer.confirm('选课成功', {
+                                btn: ['确定']
+                                , btn1: function (index, layero) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            layer.msg("选课失败");
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        layer.msg(typeof (errorThrown));
                     }
                 });
             }

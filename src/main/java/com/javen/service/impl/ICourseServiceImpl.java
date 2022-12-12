@@ -22,6 +22,11 @@ public class ICourseServiceImpl implements ICourseService {
     }
 
     @Override
+    public List<Course> findSelect(Integer id) {
+        return courseDao.findSelect(id);
+    }
+
+    @Override
     public List<Course> findByName(Course course) {
         return courseDao.findByName(course);
     }
@@ -39,5 +44,10 @@ public class ICourseServiceImpl implements ICourseService {
     @Override
     public Integer updateCourse(Course course) {
         return courseDao.updateCourse(course);
+    }
+
+    @Override
+    public Integer selectCourse(Course course) {
+        return courseDao.selectCourse(course);
     }
 }

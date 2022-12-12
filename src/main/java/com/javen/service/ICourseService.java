@@ -17,6 +17,14 @@ public interface ICourseService {
     List<Course> findAll();
 
     /**
+     * 查询选课信息
+     *
+     * @param id 学生id
+     * @return 选课信息
+     */
+    List<Course> findSelect(Integer id);
+
+    /**
      * 根据名称查询课程
      *
      * @param course 课程
@@ -47,4 +55,12 @@ public interface ICourseService {
      * @return 更新情况
      */
     Integer updateCourse(Course course);
+
+    /**
+     * 选课
+     *
+     * @param course 课程
+     * @return 选课情况
+     */
+    Integer selectCourse(Course course);
 }
