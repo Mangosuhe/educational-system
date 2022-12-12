@@ -32,7 +32,7 @@
                                     lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
                             </button>
                         </div>
-                        <div class="layui-inline" style="float:right;">
+                        <div id="add1" class="layui-inline" style="float:right;">
                             <button type="button" class="layui-btn layui-btn-primary" data-type="reload"
                                     onclick="insertCourse()"><i class="layui-icon layui-icon-add-1"></i> 添 加
                             </button>
@@ -72,6 +72,9 @@
         const $ = layui.jquery;
         const s_id = localStorage.getItem("id");
 
+        if (localStorage.getItem("identity") === "2") {
+            $("#add1").hide();
+        }
         table.render({
             elem: '#test'
             , url: '/course/findAll'
@@ -87,7 +90,6 @@
                 }
                 //根据分页要求选出需要显示的数据
                 res.data = res.data.slice(this.limit * (current_pages - 1), this.limit * current_pages);
-                console.log(res.data);
             }
             , page: true
             , id: 'test'

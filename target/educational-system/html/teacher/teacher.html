@@ -32,7 +32,7 @@
                                     lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
                             </button>
                         </div>
-                        <div class="layui-inline" style="float:right;">
+                        <div id="add2" class="layui-inline" style="float:right;">
                             <button type="button" class="layui-btn layui-btn-primary" data-type="reload"
                                     onclick="insertCourse()"><i class="layui-icon layui-icon-add-1"></i> 添 加
                             </button>
@@ -50,16 +50,25 @@
 
 <script type="text/html" id="barDemo">
     <div class="layui-btn-container">
+        {{# if(localStorage.getItem("identity") != 2){ }}
         <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
         <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</button>
+        {{# }else{  }}
+        <button class="layui-btn layui-btn-disabled layui-btn-sm">无操作权限</button>
+        {{# } }}
     </div>
 </script>
 
 <script>
     layui.use('table', function () {
         const table = layui.table;
+        const form = layui.form;
         const $ = layui.jquery;
         const util = layui.util;
+
+        if (localStorage.getItem("identity") === "2") {
+            $("#add2").hide();
+        }
         table.render({
             elem: '#test'
             , url: '/teacher/findAll'

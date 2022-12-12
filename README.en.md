@@ -1,36 +1,33 @@
-# 教务系统
+# Educational system
 
 #### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+This is an educational administration system platform built by the SSM framework.
+#### Local build environment
+InteliJ IDEA、jdk1.8、tomcat8.5.29、mysql8.0.28.
 
 #### Software Architecture
-Software architecture description
-
+~~~~
+├── src/main
+│   ├── java/com/javen
+│   ├── ├── controller
+│   ├── ├── dao
+│   ├── ├── model
+│   ├── ├── service
+│   ├── ├──├── impl
+│   ├── resources
+│   ├── ├──mapping                    // mybatis映射文件
+│   ├── ├──sql                        //数据库文件
+│   ├── ├──jdbc.properties            //数据库配置文件
+│   ├── ├──log4j.properties           //日志配置文件
+│   ├── ├──mybatis-config.xml         //mybatis配置文件
+│   ├── ├──spring-mvc.xml             //springmvc配置文件
+│   ├── ├──spring-mybatis.xml         //spring配置文件
+│   ├── webapp
+├── pom.xml
+~~~~
 #### Installation
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1. Download the project and import the dependencies;
+2. Installation environment: InteliJ IDEA, jdk1.8, tomcat8.5.29, mysql8.0.28;
+3. Add a database (the database file is in the src/main/resources/sql directory), and modify the database connection information in the jdbc.properties;
+4. Add Tomcat startup (artifacts need to be configured).
