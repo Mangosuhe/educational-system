@@ -4,7 +4,7 @@
 这是一个由SSM框架搭建的教务系统平台。
 
 #### 本地搭建环境
-InteliJ IDEA、jdk1.8、tomcat8.5.29、mysql8.0.28
+InteliJ IDEA、jdk-1.8、tomcat-8.5.29、mysql-8.0.28、maven-3.8.6
 
 #### 项目结构
 ~~~~
